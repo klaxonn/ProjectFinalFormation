@@ -30,7 +30,7 @@ public class LoginSteps {
 	@Before
 	public void init() throws MalformedURLException {
 	    ThreadLocal<RemoteWebDriver> remoteDriver = new ThreadLocal<>();
-		String remote_url_chrome = "http://selenium:4445/wd/hub";
+		String remote_url_chrome = "http://localhost:4445/wd/hub";
 		ChromeOptions options = new ChromeOptions();
 	    remoteDriver.set(new RemoteWebDriver(new URL(remote_url_chrome), options));
 		driver = remoteDriver.get();
