@@ -3,8 +3,13 @@ package ProjectFinalFormation.testsSuite;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -23,8 +28,12 @@ public class LoginSteps {
 	final String website = "https://www.laboutique.carambarco.com/"; 
 	
 	@Before
-	public void init() {
-		driver = new ChromeDriver();
+	public void init() throws MalformedURLException {
+	    ThreadLocal<RemoteWebDriver> remoteDriver = new ThreadLocal<>();
+		String remote_url_chrome = "http://localhost:4445/wd/hub";
+		ChromeOptions options = new ChromeOptions();
+	    remoteDriver.set(new RemoteWebDriver(new URL(remote_url_chrome), options));
+		driver = remoteDriver.get();
 	}
 	
 	@Given("Le particulier est sur la page principale")
