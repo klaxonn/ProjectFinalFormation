@@ -6,7 +6,7 @@ Feature: Creer un compte
     And il va sur la page de création de compte
     And il écrit son prénom "John"
     And il écrit son nom "Doe"
-    And il écrit son email "k@k.com"
+    And il écrit son email "ka@ka.com"
     And il écrit son mot de passe "Azer123!"
     And il s'enregistre
     Then on doit arriver à la page principale
